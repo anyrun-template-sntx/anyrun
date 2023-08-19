@@ -83,7 +83,7 @@
           drv = anyrun;
         };
 
-        nixosModules.home-manager = import ./hm-module.nix self;
+        homeManagerModules.anyrun = import ./hm-module.nix self;
 
         devShells.default = pkgs.mkShell {
           inputsFrom = builtins.attrValues self.checks.${system};
