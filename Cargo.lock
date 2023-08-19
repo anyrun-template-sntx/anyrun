@@ -124,7 +124,7 @@ dependencies = [
 [[package]]
 name = "anyrun-interface"
 version = "0.1.0"
-source = "git+https://github.com/anyrun-template-sntx/anyrun-interface#60782de9a1621b9d6cac5abade6d322701b16a15"
+source = "git+https://github.com/anyrun-template-sntx/interface#c534062dd460bbeffe2652cae8d2342be0341618"
 dependencies = [
  "abi_stable",
 ]
@@ -132,7 +132,7 @@ dependencies = [
 [[package]]
 name = "anyrun-macros"
 version = "0.1.0"
-source = "git+https://github.com/anyrun-template-sntx/anyrun-macros#9f0956ed5bd7c8caceccdfc20045e97508a823b0"
+source = "git+https://github.com/anyrun-template-sntx/macros#f195688179fadb99f2ddc0acb2854a021630b2dc"
 dependencies = [
  "quote",
  "syn 2.0.29",
