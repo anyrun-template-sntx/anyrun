@@ -333,7 +333,7 @@ fn activate(app: &gtk::Application, runtime_data: Rc<RefCell<RuntimeData>>) {
     {
         eprintln!("Failed to load custom CSS: {}", why);
         provider
-            .load_from_data(include_bytes!("../res/style.css"))
+            .load_from_data(include_bytes!("../rsc/style.css"))
             .unwrap();
     }
     gtk::StyleContext::add_provider_for_screen(
