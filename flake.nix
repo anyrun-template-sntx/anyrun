@@ -53,8 +53,7 @@
         anyrun = craneLib.buildPackage (commonArgs // {
           inherit cargoArtifacts;
         });
-      in
-      {
+      in rec {
         checks = {
           inherit anyrun;
 
@@ -83,7 +82,12 @@
           drv = anyrun;
         };
 
-        homeManagerModules.anyrun = import ./hm-module.nix self;
+        nixosModules.home-manager = homeManagerModules.default;
+
+        homeManagerModules = rec {
+          anyrun = import ./nix/hm-module.nix self;
+          default = anyrun;
+        };
 
         devShells.default = pkgs.mkShell {
           inputsFrom = builtins.attrValues self.checks.${system};
