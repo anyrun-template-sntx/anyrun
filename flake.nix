@@ -85,7 +85,7 @@
         nixosModules.home-manager = homeManagerModules.default;
 
         homeManagerModules = rec {
-          anyrun = import ./nix/hm-module.nix self;
+          anyrun = import ./hm-module.nix self;
           default = anyrun;
         };
 
