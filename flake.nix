@@ -30,7 +30,8 @@
         src = lib.cleanSourceWith {
           src = ./.;
           filter = path: type:
-            (lib.hasSuffix "\.css" path) ||
+            # (lib.hasSuffix "\.css" path) ||
+            (lib.hasInfix "/rsc/" path) ||
             (craneLib.filterCargoSources path type)
           ;
         };
@@ -82,13 +83,9 @@
           drv = anyrun;
         };
 
-        flake = _: rec {
-          nixosModules.home-manager = homeManagerModules.default;
-
-          homeManagerModules = rec {
-            anyrun = import ./nix/hm-module.nix self;
-            default = anyrun;
-          };
+        homeManagerModules = {
+          anyrun = import ./hm-module.nix self;
+          default = anyrun;
         };
 
         devShells.default = pkgs.mkShell {
